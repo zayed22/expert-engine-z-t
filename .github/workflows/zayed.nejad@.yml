@@ -1,0 +1,76 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+        - name: GraphQL query
+  uses: helaili/github-graphql-action@1.0
+  job_id:- name: Setup Node.js for use with actions
+  uses: actions/setup-node@v1.1.0
+  with:
+    # Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0, lts
+    version: # optional, default is 10.x
+    # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN
+    registry-url: # optional
+    # Optional scope for authenticating against scoped registries
+    scope: # optional
+     - name: Setup Java Action
+  uses: actions/setup-java@v1.0.0
+  with:
+    # The JDK version to make available on the path. Takes a whole or semver Jdk version, or 1.x syntax (e.g. 1.8 => Jdk 8.x)
+    version: 
+    # The architecture (x86, x64) of the JDK.
+    architecture: # default is x64
+    # Path to where the compressed JDK is located. The path could be in your source repository or a local path on the agent.
+    jdkFile: # optional
+    - name: Download artifact
+  uses: actions/download-artifact@v1.0.0
+  with:
+    # Artifact name
+    name: # optional
+    # Destination path
+    path: # optional
+    # artifact source
+    source: # optional, default is current
+    - name: Close Stale Issues
+  uses: actions/stale@1.0.0
+  with:
+    # Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}
+    repo-token: 
+    # The message to post on the issue when tagging it. If none provided, will not mark iusses stale.
+    stale-issue-message: # optional
+    # The message to post on the pr when tagging it. If none provided, will not mark prs stale.
+    stale-pr-message: # optional
+    # The number of days old an issue can be before marking it stale
+    days-before-stale: # optional, default is 60
+    # The number of days to wait to close an issue or pr after it being marked stale
+    days-before-close: # optional, default is 7
+    # The label to apply when an issue is stale
+    stale-issue-label: # optional, default is Stale
+    # The label to apply when a pr is stale
+    stale-pr-label: # optional, default is Stale
+    # The maximum number of operations per run, used to control rate limiting
+    operations-per-run: # optional, default is 30
+    - name: All in one project
+  uses: masutaka/github-actions-all-in-one-project@1.1.0
+  - name: Node App Helper Actions
+  uses: guahanweb/action-nodejs-gh-pages@1.0.0:
+     - name: GitHub Action for Serverless Framework
+  uses: aaronpanch/action-serverless@v1.0.0
+- name: GitHub Action for Serverless Framework
+  uses: aaronpanch/action-serverless@v1.0.0
+  - name: Upgrade to Python 3
+  uses: cclauss/Upgrade-to-Python3@0.1.0
+  
